@@ -562,14 +562,14 @@
                      <div class="form-header">
                          Message Me
                      </div>
-                     <form id="myForm" action="#">
+                     <form id="contactform" name="contactform" method="post">
                         <div class="input-line">
-                            <input  id="name" type="text" placeholder="Name" class="input-name">
-                            <input id="email" type="email" placeholder="Email"  class="input-name">
+                            <input  name="name" id="name" type="text" placeholder="Name" class="input-name">
+                            <input name="email" id="email" type="email" placeholder="Email"  class="input-name">
                         </div>
-                        <input type="text" id="subject" placeholder="subject" class="input-subject">
-                        <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
-                        <button type="button" id ="submit" value="send">Submit</button>
+                        <input name="subject" type="text" id="subject" placeholder="subject" class="input-subject">
+                        <textarea name="message" id ="body" class="input-textarea" placeholder="message"></textarea>
+                        <button name="submit" type="submit" id ="submit" value="send" >Submit</button>
                      </form>
                    
                  </div>
@@ -626,7 +626,18 @@
     <!--all the divisions-->
     <script src="js/jquery.min.js"></script>
     <script src="js/index.js"></script>
-
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyC09Inl4xhCb1extUcKe6XmD-cQ1BOUFAJSW5hG0l_-iRxkVo1quHnPyCBdzHGy_s/exec'
+        const form = document.forms['contactform']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thank you! your message is submitted successfully, Will try to reply as soon as possible." ))
+            .then(() => {  window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 
 </body>
 </html>
