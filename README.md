@@ -1,5 +1,5 @@
 # Portfolio
-## View portfolio on : **link to be updated**
+## View portfolio on : https://hemang5902.github.io/Portfolio/
 
 <h1 align="center">Hi 👋, I'm Hemang Gawali</h1>
 <h3 align="center">A passionate Data science enthusiast from India</h3>
